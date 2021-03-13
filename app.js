@@ -13,10 +13,7 @@ const { aggregate } = require("./models/User");
 
 //Mongoose Setup
 mongoose
-  .connect(
-    "mongodb+srv://Cristhian:M1234567@cluster0.bgzqh.mongodb.net/database?retryWrites=true&w=majority",
-    { useNewUrlParser: true }
-  )
+  .connect("mongodb://localhost/server", { useNewUrlParser: true })
   .then((x) => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -39,7 +36,7 @@ app.use(
       "http://localhost:3000",
       "https://ppmanager.herokuapp.com/",
       "https://ppmanager.herokuapp.com/project/create",
-      "https://ppmanagers.herokuapp.com/"
+      "https://ppmanagers.herokuapp.com/",
     ],
     credentials: true,
   })
