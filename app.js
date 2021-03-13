@@ -39,7 +39,7 @@ app.use(
       "http://localhost:3000",
       "https://ppmanager.herokuapp.com/",
       "https://ppmanager.herokuapp.com/project/create",
-      "https://ppmanagers.herokuapp.com/"
+      "https://ppmanagers.herokuapp.com/",
     ],
     credentials: true,
   })
@@ -59,18 +59,18 @@ app.use(
 app.use(flash());
 require("./passport")(app);
 
-app.use("/api/", require("./routes/index"));
-app.use("/api/auth", require("./routes/auth"));
-app.use("/api/signup", require("./routes/auth"));
-app.use("/api/login", require("./routes/auth"));
-app.use("/api/profile", require("./routes/index"));
-app.use("/api/project", require("./routes/index"));
-app.use("/api/resource/:resourceId", require("./routes/index"));
-app.use("/api/actions", require("./routes/index"));
-app.use("/api/resourcevis", require("./routes/index"));
-app.use("/api/pricing", require("./routes/index"));
-app.use("/api/product", require("./routes/index"));
-app.use("/api/admin", require("./routes/index"));
+app.use("/", require("./routes/index"));
+app.use("/auth", require("./routes/auth"));
+app.use("/signup", require("./routes/auth"));
+app.use("/login", require("./routes/auth"));
+app.use("/profile", require("./routes/index"));
+app.use("/project", require("./routes/index"));
+app.use("/resource/:resourceId", require("./routes/index"));
+app.use("/actions", require("./routes/index"));
+app.use("/resourcevis", require("./routes/index"));
+app.use("/pricing", require("./routes/index"));
+app.use("/product", require("./routes/index"));
+app.use("/admin", require("./routes/index"));
 app.use("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
