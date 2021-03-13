@@ -39,6 +39,7 @@ app.use(
       "http://localhost:3000",
       "https://ppmanager.herokuapp.com/",
       "https://ppmanager.herokuapp.com/project/create",
+      "https://ppmanagers.herokuapp.com/"
     ],
     credentials: true,
   })
@@ -46,6 +47,7 @@ app.use(
 app.use(express.static("public"));
 
 // Enable authentication using session + passport
+//new lineeeeeeee
 app.use(
   session({
     secret: "irongenerator",
@@ -61,14 +63,14 @@ app.use("/api/", require("./routes/index"));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/signup", require("./routes/auth"));
 app.use("/api/login", require("./routes/auth"));
-app.use("/api/profile", require("./routes/auth"));
-app.use("/api/project", require("./routes/auth"));
-app.use("/api/resource/:resourceId", require("./routes/auth"));
-app.use("/api/actions", require("./routes/auth"));
-app.use("/api/resourcevis", require("./routes/auth"));
-app.use("/api/pricing", require("./routes/auth"));
-app.use("/api/product", require("./routes/auth"));
-app.use("/api/admin", require("./routes/auth"));
+app.use("/api/profile", require("./routes/index"));
+app.use("/api/project", require("./routes/index"));
+app.use("/api/resource/:resourceId", require("./routes/index"));
+app.use("/api/actions", require("./routes/index"));
+app.use("/api/resourcevis", require("./routes/index"));
+app.use("/api/pricing", require("./routes/index"));
+app.use("/api/product", require("./routes/index"));
+app.use("/api/admin", require("./routes/index"));
 app.use("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
